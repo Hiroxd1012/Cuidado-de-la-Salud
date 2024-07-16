@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citas en Hospitales de Juliaca</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        .hospital {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .hospital h2 {
+            color: #4CAF50;
+        }
+        .hospital img {
+            width: 150px; /* Ajusta el tamaño de la imagen según sea necesario */
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+        .hospital button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: 0 auto;
+        }
+        .hospital button:disabled {
+            background-color: grey;
+            cursor: not-allowed;
+        }
+        .hospital .confirm-button {
+            margin-top: 10px;
+            background-color: #008CBA;
+        }
+        .hospital .confirm-button:hover {
+            background-color: #007BB5;
+        }
+
+        .hospital .success-message {
+            margin-top: 10px;
+            color: green;
+            text-align: center;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .hospital {
+                padding: 10px;
+            }
+            .hospital button {
+                width: 100%;
+                padding: 15px;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+    <script>
+        function enableButton(hospitalId) {
+            document.getElementById('submit-' + hospitalId).disabled = false;
+        }
+
+        function showSuccessMessage(hospitalId) {
+            var successMessage = document.createElement('p');
+            successMessage.className = 'success-message';
+            successMessage.textContent = 'Cita hecha';
+            document.getElementById(hospitalId).appendChild(successMessage);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Citas en Hospitales de Juliaca</h1>
+    </header>
+    <main>
+        <div class="hospital" id="hospital1">
+            <h2>Clínica Americana</h2>
+            <p>Dirección: Jr. Mariano Nuñez N° 125, Juliaca</p>
+            <p>Teléfono: (051) 323210</p>
+            <p>Total: $10</p>
+            <img src="Imagenes/yape.jpeg" alt="QR de Yape para Hospital 1">
+            <button class="confirm-button" onclick="enableButton('hospital1')">He Yapeado</button>
+            <button id="submit-hospital1" onclick="showSuccessMessage('hospital1')" disabled>Solicitar Cita</button>
+        </div>
+        <div class="hospital" id="hospital2">
+            <h2>Clínica San Juan de Dios</h2>
+            <p>Dirección: Av. El Sol N° 370, Juliaca</p>
+            <p>Teléfono: (051) 322456</p>
+            <p>Total: $15</p>
+            <img src="Imagenes/yape.jpeg" alt="QR de Yape para Hospital 2">
+            <button class="confirm-button" onclick="enableButton('hospital2')">He Yapeado</button>
+            <button id="submit-hospital2" onclick="showSuccessMessage('hospital2')" disabled>Solicitar Cita</button>
+        </div>
+        <div class="hospital" id="hospital3">
+            <h2>Hospital Carlos Monge Medrano</h2>
+            <p>Dirección: Av. Circunvalación Este N° 189, Juliaca</p>
+            <p>Teléfono: (051) 322013</p>
+            <p>Total: $15</p>
+            <img src="Imagenes/yape.jpeg" alt="QR de Yape para Hospital 3">
+            <button class="confirm-button" onclick="enableButton('hospital3')">He Yapeado</button>
+            <button id="submit-hospital3" onclick="showSuccessMessage('hospital3')" disabled>Solicitar Cita</button>
+        </div>
+    </main>
+</body>
+</html>
+
+
+
